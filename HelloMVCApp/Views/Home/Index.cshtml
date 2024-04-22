@@ -1,0 +1,21 @@
+﻿@model HelloMVCApp.Models.User
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="d-flex flex-column align-items-center gap-2">
+    <h1 class="display-4">Enter your name</h1>
+        <form asp-action="Index" class="d-flex flex-column gap-2 w-25">
+            <input asp-for="Name" required pattern="^[A-Z]+[a-zA-Z\s]*$" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <input type="submit" value="Go!" class="btn btn-primary" />
+        </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
